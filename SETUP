@@ -1,0 +1,9 @@
+Install vagrant
+https://www.vagrantup.com/
+
+Install chef development kit
+https://downloads.chef.io/chef-dk/ubuntu/
+
+vagrant install vagrant-berkshelf
+vagrant plugin install vagrant-omnibus
+
