@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export NODE_ENV=<%= node[:apiaxle][:environment] %>
 exec 2>&1
 exec chpst -u <%= node[:apiaxle][:user] %> apiaxle-proxy-event-subscriber \
   -f <%= node[:apiaxle][:proxy_event_subscriber][:process_forks] %>

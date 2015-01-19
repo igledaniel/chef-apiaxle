@@ -1,4 +1,10 @@
+default[:apiaxle][:environment] = "production"
 default[:apiaxle][:user] = 'vagrant'
+default[:apiaxle][:group] = 'vagrant'
+
+default[:apiaxle][:redis][:host] = "localhost"
+default[:apiaxle][:redis][:port] = 6379
+default[:apiaxle][:log_file] = "/var/log/apiaxle/#{node[:apiaxle][:environment]}.log"
 
 default[:apiaxle][:api][:host] = '0.0.0.0'
 default[:apiaxle][:api][:port] = 3000

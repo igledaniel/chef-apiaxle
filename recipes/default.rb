@@ -4,6 +4,9 @@ package 'build-essential'
 package 'python-software-properties'
 package 'libxml2-dev'
 
+include_recipe "apiaxle::environment"
+include_recipe "apiaxle::config"
+
 include_recipe "apiaxle::install_redis"
 
 include_recipe "nodejs"
