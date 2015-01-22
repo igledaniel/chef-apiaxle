@@ -1,1 +1,0 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/baldur/code/chef-apiaxle","disabled":false},"v-csc-1":{"id":"v-csc-1","guestpath":"/tmp/vagrant-chef-3/chef-solo-1/cookbooks","hostpath":"/home/baldur/.berkshelf/vagrant-berkshelf/shelves/berkshelf20150112-29825-csuben-default","disabled":false}}}
