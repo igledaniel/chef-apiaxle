@@ -1,3 +1,16 @@
+execute "apt-get update"
+
+package 'build-essential'
+package 'python-software-properties'
+package 'libxml2-dev'
+
+include_recipe "nodejs"
+include_recipe "nodejs::npm"
+
+include_recipe 'runit::default'
+
+
+include_recipe "apiaxle::environment"
 directory "/var/log/apiaxle" do
   owner node[:apiaxle][:user]
   group node[:apiaxle][:user]
