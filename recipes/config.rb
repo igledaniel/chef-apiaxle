@@ -3,6 +3,13 @@ directory "/var/log/apiaxle" do
   group node[:apiaxle][:user]
 end
 
+directory "/etc/apiaxle" do
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+end
+
 file "/etc/apiaxle/#{node[:apiaxle][:environment]}.json" do
   owner 'root'
   group 'root'
