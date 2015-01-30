@@ -21,3 +21,10 @@ default[:apiaxle][:proxy][:process_forks]                  = node[:cpu][:total]
 default[:apiaxle][:proxy][:process_events]                 = true
 
 default[:apiaxle][:proxy_event_subscriber][:process_forks] = node[:cpu][:total]
+
+default[:redisio][:version]                                = '2.8.17'
+
+default[:nodejs][:install_method]                          = 'binary'
+default[:nodejs][:version]                                 = '0.10.32'
+default[:nodejs][:dir]                                     = '/usr'
+default[:nodejs][:checksum_linux_x64]                      = '621777798ed9523a4ad1c4d934f94b7bc765871d769a014a53a4f1f7bcb5d5a7'

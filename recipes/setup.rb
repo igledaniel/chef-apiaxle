@@ -5,7 +5,6 @@
 
 include_recipe 'apt::default'
 include_recipe 'nodejs::default'
-include_recipe 'nodejs::npm'
 include_recipe 'runit::default'
 include_recipe 'apiaxle::user'
 
