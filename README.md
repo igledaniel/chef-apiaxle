@@ -1,5 +1,7 @@
 # apiaxle-cookbook
 
+[![Build Status](https://circleci.com/gh/mapzen/chef-apiaxle.svg?style=svg)](https://circleci.com/gh/mapzen/chef-apiaxle)
+
 TODO: Enter the cookbook description here.
 
 ## Supported Platforms
