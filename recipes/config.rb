@@ -5,7 +5,7 @@
 
 include_recipe 'apiaxle::setup'
 
-directory node[:apiaxle][:setup][:cfgdir] do
+directory node[:apiaxle][:config][:cfgdir] do
   action    :create
   recursive true
   owner     node[:apiaxle][:user][:name]
@@ -13,7 +13,7 @@ directory node[:apiaxle][:setup][:cfgdir] do
   mode      '0644'
 end
 
-template "#{node[:apiaxle][:setup][:cfgdir]}/#{node[:apiaxle][:environment]}.json" do
+template "#{node[:apiaxle][:config][:cfgdir]}/#{node[:apiaxle][:environment]}.json" do
   action  :create
   owner   node[:apiaxle][:user][:name]
   group   node[:apiaxle][:user][:group]
@@ -21,6 +21,7 @@ template "#{node[:apiaxle][:setup][:cfgdir]}/#{node[:apiaxle][:environment]}.jso
   source  'apiaxle.json.erb'
   variables(
     redis_host: node[:apiaxle][:redis][:host],
-    redis_port: node[:apiaxle][:redis][:port]
+    redis_port: node[:apiaxle][:redis][:port],
+    log_level: node[:apiaxle][:config][:log_level]
   )
 end

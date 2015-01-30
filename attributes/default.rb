@@ -1,6 +1,7 @@
 default[:apiaxle][:environment]                            = 'development'
 
-default[:apiaxle][:setup][:cfgdir]                         = '/etc/apiaxle'
+default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
+default[:apiaxle][:config][:cfgdir]                        = 'DEBUG'
 
 default[:apiaxle][:user][:home]                            = '/home/apiaxle'
 default[:apiaxle][:user][:name]                            = 'apiaxle'
