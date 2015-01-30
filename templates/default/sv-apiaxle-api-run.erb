@@ -1,8 +1,7 @@
 #!/bin/bash
 
-export NODE_ENV=<%= node[:apiaxle][:environment] %>
 exec 2>&1
-exec chpst -u <%= node[:apiaxle][:user] %> apiaxle-api \
+exec chpst -u <%= node[:apiaxle][:user][:name] %> apiaxle-api \
   -h <%= node[:apiaxle][:api][:host] %> \
   -p <%= node[:apiaxle][:api][:port] %> \
   -f <%= node[:apiaxle][:api][:process_forks] %>

@@ -1,32 +1,33 @@
-execute "apt-get update"
+#
+# Cookbook Name:: apiaxle
+# Recipe:: config
+#
 
-package 'build-essential'
-package 'python-software-properties'
-package 'libxml2-dev'
+include_recipe 'apiaxle::user'
 
-include_recipe "nodejs"
-include_recipe "nodejs::npm"
+include_recipe 'apt::default'
+
+%w(build-essential python-software-properties libxml2-dev).each do |dep|
+  package dep
+end
+
+include_recipe 'nodejs::default'
+include_recipe 'nodejs::npm'
 
 include_recipe 'runit::default'
 
-
-include_recipe "apiaxle::environment"
-directory "/var/log/apiaxle" do
-  owner node[:apiaxle][:user]
-  group node[:apiaxle][:user]
-end
-
-directory "/etc/apiaxle" do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  action :create
+directory '/etc/apiaxle' do
+  action  :create
+  owner   node[:apiaxle][:user][:name]
+  group   node[:apiaxle][:user][:group]
+  mode    '0644'
 end
 
 file "/etc/apiaxle/#{node[:apiaxle][:environment]}.json" do
-  owner 'root'
-  group 'root'
-  mode '0644'
+  action  :create
+  owner   'root'
+  group   'root'
+  mode    '0644'
   content <<-EOM
 {
   "redis": {
@@ -39,13 +40,9 @@ file "/etc/apiaxle/#{node[:apiaxle][:environment]}.json" do
   "logging": {
     "level": "DEBUG",
     "appenders": [{
-      "type": "file",
-      "filename": "#{node[:apiaxle][:log_file]}"
+      "type": "stdout"
     }]
   }
 }
-EOM
-  action :create
+  EOM
 end
-
-

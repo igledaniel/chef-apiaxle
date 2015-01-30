@@ -1,15 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-VAGRANTFILE_API_VERSION = "2"
-
 Vagrant.require_version ">= 1.5.0"
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.hostname = "apiaxle-berkshelf"
-  config.omnibus.chef_version = :latest
-  config.vm.box = "chef/ubuntu-14.04"
-  config.vm.network :private_network, ip: "33.33.33.10"
+Vagrant.configure('2') do |config|
+  config.omnibus.chef_version = '11.12.8'
+  config.vm.hostname          = 'apiaxle'
+  config.vm.box               = 'ubuntu-14.04-opscode'
+  config.vm.box_url           = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
+  config.vm.network :private_network, ip: '192.168.10.10'
   config.vm.network :forwarded_port, host: 8000, guest: 3000
   config.berkshelf.enabled = true
 
@@ -18,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-        "recipe[apiaxle::default]"
+        'recipe[apiaxle::default]'
     ]
   end
 end
