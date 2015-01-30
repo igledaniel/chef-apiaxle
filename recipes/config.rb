@@ -10,7 +10,7 @@ directory node[:apiaxle][:config][:cfgdir] do
   recursive true
   owner     node[:apiaxle][:user][:name]
   group     node[:apiaxle][:user][:group]
-  mode      '0644'
+  mode      '0755'
 end
 
 template "#{node[:apiaxle][:config][:cfgdir]}/#{node[:apiaxle][:environment]}.json" do
