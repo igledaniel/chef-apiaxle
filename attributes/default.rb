@@ -20,4 +20,4 @@ default[:apiaxle][:proxy][:port]                           = 3100
 default[:apiaxle][:proxy][:process_forks]                  = node[:cpu][:total]
 default[:apiaxle][:proxy][:process_events]                 = true
 
-default[:apiaxle][:proxy_event_subscriber][:process_forks] = 1
+default[:apiaxle][:proxy_event_subscriber][:process_forks] = node[:cpu][:total]
