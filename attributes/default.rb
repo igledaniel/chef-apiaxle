@@ -1,5 +1,7 @@
 default[:apiaxle][:environment]                            = 'development'
 
+default[:apiaxle][:setup][:cfgdir]                         = '/etc/apiaxle'
+
 default[:apiaxle][:user][:home]                            = '/home/apiaxle'
 default[:apiaxle][:user][:name]                            = 'apiaxle'
 default[:apiaxle][:user][:group]                           = 'apiaxle'
@@ -7,7 +9,6 @@ default[:apiaxle][:user][:filehandle_limit]                = 10_240
 
 default[:apiaxle][:redis][:host]                           = 'localhost'
 default[:apiaxle][:redis][:port]                           = 6379
-default[:apiaxle][:log_file]                               = "/var/log/apiaxle/#{node[:apiaxle][:environment]}.log"
 
 default[:apiaxle][:api][:host]                             = '0.0.0.0'
 default[:apiaxle][:api][:port]                             = 3000
