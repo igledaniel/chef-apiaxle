@@ -17,7 +17,8 @@ Vagrant.configure('2') do |config|
     }
 
     chef.run_list = [
-        'recipe[apiaxle::default]'
+        'recipe[apiaxle::config]',
+        'recipe[apiaxle::api]'
     ]
   end
 end

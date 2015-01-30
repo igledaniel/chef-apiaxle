@@ -25,8 +25,8 @@ end
 
 file "/etc/apiaxle/#{node[:apiaxle][:environment]}.json" do
   action  :create
-  owner   'root'
-  group   'root'
+  owner   node[:apiaxle][:user][:name]
+  group   node[:apiaxle][:user][:group]
   mode    '0644'
   content <<-EOM
 {
