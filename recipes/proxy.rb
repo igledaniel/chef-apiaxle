@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: apiaxle
-# Recipe:: default
+# Recipe:: proxy
 #
 
 include_recipe 'apiaxle::setup'
