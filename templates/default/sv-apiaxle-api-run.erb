@@ -1,8 +1,8 @@
 #!/bin/bash
 
 exec 2>&1
-exec chpst -u <%= node[:apiaxle][:user][:name] %> apiaxle-api \
-  -e <%= node[:runit][:sv_dir] %>/apiaxle-api/env \
+exec chpst -u <%= node[:apiaxle][:user][:name] %> -e <%= node[:runit][:sv_dir] %>/apiaxle-api/env \
+apiaxle-api \
   -h <%= node[:apiaxle][:api][:host] %> \
   -p <%= node[:apiaxle][:api][:port] %> \
   -f <%= node[:apiaxle][:api][:process_forks] %>
