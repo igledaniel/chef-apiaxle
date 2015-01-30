@@ -1,9 +1,15 @@
-include_recipe "apiaxle::config"
+#
+# Cookbook Name:: apiaxle
+# Recipe:: default
+#
 
-include_recipe "apiaxle::install_redis"
-
-include_recipe 'apiaxle::api'
-include_recipe 'apiaxle::proxy'
+%w(
+  config
+  redis
+  api
+  proxy
+).each do |recipe|
+  include_recipe "apiaxle::#{recipe}"
+end
 
 nodejs_npm 'apiaxle-repl'
-

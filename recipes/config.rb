@@ -1,51 +1,27 @@
-execute "apt-get update"
+#
+# Cookbook Name:: apiaxle
+# Recipe:: config
+#
 
-package 'build-essential'
-package 'python-software-properties'
-package 'libxml2-dev'
+include_recipe 'apiaxle::setup'
 
-include_recipe "nodejs"
-include_recipe "nodejs::npm"
-
-include_recipe 'runit::default'
-
-
-include_recipe "apiaxle::environment"
-directory "/var/log/apiaxle" do
-  owner node[:apiaxle][:user]
-  group node[:apiaxle][:user]
+directory node[:apiaxle][:config][:cfgdir] do
+  action    :create
+  recursive true
+  owner     node[:apiaxle][:user][:name]
+  group     node[:apiaxle][:user][:group]
+  mode      '0644'
 end
 
-directory "/etc/apiaxle" do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  action :create
+template "#{node[:apiaxle][:config][:cfgdir]}/#{node[:apiaxle][:environment]}.json" do
+  action  :create
+  owner   node[:apiaxle][:user][:name]
+  group   node[:apiaxle][:user][:group]
+  mode    '0644'
+  source  'apiaxle.json.erb'
+  variables(
+    redis_host: node[:apiaxle][:redis][:host],
+    redis_port: node[:apiaxle][:redis][:port],
+    log_level: node[:apiaxle][:config][:log_level]
+  )
 end
-
-file "/etc/apiaxle/#{node[:apiaxle][:environment]}.json" do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  content <<-EOM
-{
-  "redis": {
-    "host": "#{node[:apiaxle][:redis][:host]}",
-    "port": #{node[:apiaxle][:redis][:port]}
-  },
-  "application": {
-    "debug": true
-  },
-  "logging": {
-    "level": "DEBUG",
-    "appenders": [{
-      "type": "file",
-      "filename": "#{node[:apiaxle][:log_file]}"
-    }]
-  }
-}
-EOM
-  action :create
-end
-
-
