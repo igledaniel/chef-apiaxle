@@ -13,7 +13,7 @@ runit_service 'apiaxle-proxy' do
   log             true
   default_logger  true
   sv_timeout      30
-  subscribes      :restart, 'template[]', :delayed
+  subscribes      :restart, "template[#{node[:apiaxle][:setup][:cfgdir]}/#{node[:apiaxle][:environment]}.json]", :delayed
   env('NODE_ENV' => "#{node[:apiaxle][:environment]}")
 end
 
@@ -22,6 +22,6 @@ runit_service 'apiaxle-proxy-event-subscriber' do
   log             true
   default_logger  true
   sv_timeout      30
-  subscribes      :restart, 'template[]', :delayed
+  subscribes      :restart, "template[#{node[:apiaxle][:setup][:cfgdir]}/#{node[:apiaxle][:environment]}.json]", :delayed
   env('NODE_ENV' => "#{node[:apiaxle][:environment]}")
 end

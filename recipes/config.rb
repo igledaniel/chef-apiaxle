@@ -19,8 +19,8 @@ template "#{node[:apiaxle][:setup][:cfgdir]}/#{node[:apiaxle][:environment]}.jso
   group   node[:apiaxle][:user][:group]
   mode    '0644'
   source  'apiaxle.json.erb'
-  variables({
+  variables(
     redis_host: node[:apiaxle][:redis][:host],
     redis_port: node[:apiaxle][:redis][:port]
-  })
+  )
 end
