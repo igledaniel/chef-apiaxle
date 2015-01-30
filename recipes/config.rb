@@ -3,8 +3,6 @@
 # Recipe:: config
 #
 
-include_recipe 'apiaxle::setup'
-
 directory node[:apiaxle][:config][:cfgdir] do
   action    :create
   recursive true
