@@ -10,6 +10,7 @@ recipe 'apiaxle', 'Installs apiaxle'
 
 depends 'apt'
 depends 'user'
+depends 'ulimit'
 depends 'nodejs',   '~> 2.2.0'
 depends 'redisio',  '~> 2.2.4'
 depends 'runit',    '~> 1.5.14'
