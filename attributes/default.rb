@@ -1,4 +1,5 @@
 default[:apiaxle][:environment]                            = 'development'
+default[:apiaxle][:version]                                = '1.12.34'
 
 default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
 default[:apiaxle][:config][:log_level]                     = 'DEBUG'

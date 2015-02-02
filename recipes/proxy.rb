@@ -6,7 +6,9 @@
 include_recipe 'apiaxle::setup'
 include_recipe 'apiaxle::config'
 
-nodejs_npm 'apiaxle-proxy'
+nodejs_npm 'apiaxle-proxy' do
+  version node[:apiaxle][:version]
+end
 
 runit_service 'apiaxle-proxy' do
   action          [:enable]
