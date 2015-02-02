@@ -1,7 +1,7 @@
 name             'apiaxle'
 maintainer       'Baldur Gudbjornsson'
 maintainer_email 'baldur@mapzen.com'
-license          'All rights reserved'
+license          'GPL v3'
 description      'Installs/Configures apiaxle'
 long_description 'Installs/Configures apiaxle'
 version          '0.1.0'
