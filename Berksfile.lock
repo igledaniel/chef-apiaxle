@@ -11,6 +11,7 @@ GRAPH
     nodejs (~> 2.2.0)
     redisio (~> 2.2.4)
     runit (~> 1.5.14)
+    ulimit (>= 0.0.0)
     user (>= 0.0.0)
   apt (2.6.1)
   ark (0.9.0)
