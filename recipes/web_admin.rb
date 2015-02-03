@@ -29,7 +29,8 @@ template '/etc/nginx/sites-available/apiaxle-admin' do
     install_dir: node[:apiaxle][:web_admin][:install_dir],
     listen_port: node[:apiaxle][:web_admin][:listen_port],
     allowed_ips: node[:apiaxle][:web_admin][:allowed_ips],
-    proxypass_port: node[:apiaxle][:api][:port]
+    api_host: node[:apiaxle][:api][:host],
+    api_port: node[:apiaxle][:api][:port]
   )
 end
 

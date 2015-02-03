@@ -9,6 +9,6 @@ server {
   <%- end %>
   deny all;
   location /v1 {
-    proxy_pass http://localhost:<%= @proxypass_port %>;
+    proxy_pass http://<%= @api_host %>:<%= @api_port %>;
   }
 }
