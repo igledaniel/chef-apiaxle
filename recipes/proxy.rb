@@ -3,8 +3,8 @@
 # Recipe:: proxy
 #
 
-include_recipe 'apiaxle::setup'
-include_recipe 'apiaxle::config'
+include_recipe 'apiaxle::_setup'
+include_recipe 'apiaxle::_config'
 
 nodejs_npm 'apiaxle-proxy' do
   version node[:apiaxle][:version]

@@ -2,42 +2,26 @@
 
 [![Build Status](https://circleci.com/gh/mapzen/chef-apiaxle.svg?style=svg)](https://circleci.com/gh/mapzen/chef-apiaxle)
 
-TODO: Enter the cookbook description here.
-
-## Supported Platforms
-
-TODO: List your supported platforms.
-
-## Attributes
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['apiaxle']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+Installs ApiAxle in whole or in part: the api, proxy and web administration interface
 
 ## Usage
 
 ### apiaxle::default
 
-Include `apiaxle` in your node's `run_list`:
+Installs the ApiAxle api, proxy and web admin interface.
+The admin interface can be accessed via [localhost](http://localhost:8000)
 
-```json
-{
-  "run_list": [
-    "recipe[apiaxle::default]"
-  ]
-}
-```
+### apiaxle::proxy
+
+Installs only the ApiAxle proxy and dependencies.
+
+### apiaxle::api
+
+Installs only the ApiAxle api and dependencies.
+
+### apiaxle::web_admin
+
+Installs only the web admin interface and dependencies.
 
 ## License and Authors
 

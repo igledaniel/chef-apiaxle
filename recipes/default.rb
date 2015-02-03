@@ -4,8 +4,8 @@
 #
 
 %w(
-  config
-  redis
+  _config
+  _redis
   api
   proxy
   web_admin

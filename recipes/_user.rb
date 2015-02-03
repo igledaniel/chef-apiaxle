@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: apiaxle
-# Recipe:: user
+# Recipe:: _user
 #
 
 # is someone tells us to run as root,

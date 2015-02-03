@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: apiaxle
-# Recipe:: redis
+# Recipe:: _redis
 #
 
 include_recipe 'redisio::default'

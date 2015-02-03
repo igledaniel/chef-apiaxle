@@ -1,9 +1,9 @@
 #
 # Cookbook Name:: apiaxle
-# Recipe:: config
+# Recipe:: _config
 #
 
-include_recipe 'apiaxle::user'
+include_recipe 'apiaxle::_user'
 
 directory node[:apiaxle][:config][:cfgdir] do
   action    :create

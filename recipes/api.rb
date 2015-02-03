@@ -3,8 +3,8 @@
 # Recipe:: api
 #
 
-include_recipe 'apiaxle::setup'
-include_recipe 'apiaxle::config'
+include_recipe 'apiaxle::_setup'
+include_recipe 'apiaxle::_config'
 
 %w(repl api).each do |p|
   nodejs_npm "apiaxle-#{p}" do
