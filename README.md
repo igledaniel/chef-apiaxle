@@ -11,13 +11,13 @@ Installs ApiAxle in whole or in part
 Installs the ApiAxle api, proxy and web admin interface.
 The admin interface can be accessed via [localhost](http://localhost:8000)
 
-### apiaxle::proxy
-
-Installs only the ApiAxle proxy and dependencies.
-
 ### apiaxle::api
 
 Installs only the ApiAxle api and dependencies.
+
+### apiaxle::proxy
+
+Installs only the ApiAxle proxy and dependencies.
 
 ### apiaxle::web_admin
 
