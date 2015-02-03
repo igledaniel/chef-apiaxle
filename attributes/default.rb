@@ -34,6 +34,7 @@ default[:apiaxle][:proxy_event_subscriber][:process_forks] = node[:cpu][:total]
 # web_admin
 default[:apiaxle][:web_admin][:repository]                 = 'https://github.com/mapzen/apiaxle-admin.git'
 default[:apiaxle][:web_admin][:reversion]                  = 'master'
+default[:apiaxle][:web_admin][:release_version]            = 'v1'
 default[:apiaxle][:web_admin][:install_dir]                = '/usr/local/src/apiaxle-admin'
 default[:apiaxle][:web_admin][:listen_port]                = 80
 default[:apiaxle][:web_admin][:api_host]                   = 'localhost'

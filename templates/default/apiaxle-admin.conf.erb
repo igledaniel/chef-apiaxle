@@ -8,6 +8,11 @@ server {
   allow <%= ip %>;
   <%- end %>
   deny all;
+
+  location / {
+    alias <%= @install_dir %>/releases/<%= @release_version %>/;
+  }
+
   location /v1 {
     proxy_pass http://<%= @api_host %>:<%= @api_port %>;
   }
