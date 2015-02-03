@@ -6,6 +6,7 @@ default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
 default[:apiaxle][:config][:log_level]                     = 'DEBUG'
 
 # user
+default[:apiaxle][:user][:create]                          = true
 default[:apiaxle][:user][:home]                            = '/home/apiaxle'
 default[:apiaxle][:user][:name]                            = 'apiaxle'
 default[:apiaxle][:user][:group]                           = 'apiaxle'
