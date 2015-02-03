@@ -2,7 +2,7 @@
 
 [![Build Status](https://circleci.com/gh/mapzen/chef-apiaxle.svg?style=svg)](https://circleci.com/gh/mapzen/chef-apiaxle)
 
-Installs ApiAxle in whole or in part: the api, proxy and web administration interface
+Installs ApiAxle in whole or in part
 
 ## Usage
 
