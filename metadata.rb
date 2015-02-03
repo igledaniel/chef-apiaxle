@@ -9,6 +9,7 @@ version          '0.1.0'
 recipe 'apiaxle', 'Installs apiaxle'
 
 depends 'apt'
+depends 'git'
 depends 'user'
 depends 'ulimit'
 depends 'nodejs',   '~> 2.2.0'
