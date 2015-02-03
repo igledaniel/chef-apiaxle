@@ -26,7 +26,9 @@ template '/etc/nginx/sites-available/apiaxle-admin' do
   source    'apiaxle-admin.conf.erb'
   notifies  :restart, 'service[nginx]', :delayed
   variables(
-    install_dir: node[:apiaxle][:web_admin][:install_dir]
+    install_dir: node[:apiaxle][:web_admin][:install_dir],
+    listen_port: node[:apiaxle][:web_admin][:listen_port],
+    proxypass_port: node[:apiaxle][:api][:port]
   )
 end
 
