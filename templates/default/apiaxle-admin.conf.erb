@@ -1,11 +1,12 @@
 server {
   listen <%= @listen_port %> default_server;
   listen [::]:<%= @listen_port %> default_server ipv6only=on;
-  root <%= @install_dir %>;
+  root <%= @install_dir %>/app;
   index index.html index.htm;
   server_name localhost;
-  allow 127.0.0.1;
-  allow 10.0.0.0/8;
+  <%- @allowed_ips.each do |ip| -%>
+  allow <%= ip %>;
+  <%- end %>
   deny all;
   location /v1 {
     proxy_pass http://localhost:<%= @proxypass_port %>;

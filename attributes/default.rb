@@ -35,6 +35,7 @@ default[:apiaxle][:web_admin][:repository]                 = 'https://github.com
 default[:apiaxle][:web_admin][:reversion]                  = 'master'
 default[:apiaxle][:web_admin][:install_dir]                = '/usr/local/src/apiaxle-admin'
 default[:apiaxle][:web_admin][:listen_port]                = 80
+default[:apiaxle][:web_admin][:allowed_ips]                = %w(127.0.0.1 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16)
 
 # nodejs
 default[:nodejs][:install_method]                          = 'binary'
