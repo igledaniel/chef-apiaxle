@@ -3,34 +3,33 @@
 # Recipe:: web_admin
 #
 
-package 'nginx' do
-  action :install
+include_recipe 'git::default'
+
+package 'nginx'
+
+file '/etc/nginx/sites-enabled/default' do
+  action :delete
 end
 
 service 'nginx' do
   action [:enable]
 end
 
-include_recipe 'git'
-
-git '/usr/local/src/apiaxle-admin' do
+git node[:apiaxle][:web_admin][:install_dir] do
   action      :sync
-  repository  'https://github.com/mapzen/apiaxle-admin.git'
-  reference   'master'
+  repository  node[:apiaxle][:web_admin][:repository]
+  reference   node[:apiaxle][:web_admin][:revision]
+  notifies    :restart, 'service[nginx]', :delayed
 end
 
-template '/etc/nginx/sites-available/admin' do
-  source 'apiaxle-admin.conf.erb'
+template '/etc/nginx/sites-available/apiaxle-admin' do
+  source    'apiaxle-admin.conf.erb'
+  notifies  :restart, 'service[nginx]', :delayed
+  variables(
+    install_dir: node[:apiaxle][:web_admin][:install_dir]
+  )
 end
 
-file '/etc/nginx/sites-enabled/default' do
-  action :delete
-end
-
-link '/etc/nginx/sites-enabled/admin' do
-  to '/etc/nginx/sites-available/admin'
-end
-
-service 'nginx' do
-  action [:restart]
+link '/etc/nginx/sites-enabled/apiaxle-admin' do
+  to '/etc/nginx/sites-available/apiaxle-admin'
 end

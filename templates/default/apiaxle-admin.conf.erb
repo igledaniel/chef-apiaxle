@@ -1,7 +1,7 @@
 server {
   listen 80 default_server;
   listen [::]:80 default_server ipv6only=on;
-  root /usr/local/src/apiaxle-admin/releases/v1;
+  root <%= @install_dir %>;
   index index.html index.htm;
   server_name localhost;
   allow 10.0.0.0/8;
