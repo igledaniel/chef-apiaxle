@@ -5,10 +5,10 @@
 
 include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
-include_recipe 'nginx'
+include_recipe 'nginx::default'
 
-template "/etc/nginx/sites-available/apiaxle-proxy" do
-  source "nginx-proxy.conf.erb"
+template '/etc/nginx/sites-available/apiaxle-proxy' do
+  source 'nginx-proxy.conf.erb'
 end
 
 nginx_site 'default' do
