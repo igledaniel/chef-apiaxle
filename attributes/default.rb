@@ -24,7 +24,7 @@ default[:apiaxle][:api][:port]                             = 3000
 default[:apiaxle][:api][:process_forks]                    = node[:cpu][:total]
 
 # proxy
-default[:apiaxle][:proxy][:host]                           = '0.0.0.0'
+default[:apiaxle][:proxy][:host]                           = '127.0.0.1'
 default[:apiaxle][:proxy][:port]                           = 3100
 default[:apiaxle][:proxy][:process_forks]                  = node[:cpu][:total]
 default[:apiaxle][:proxy][:process_events]                 = true

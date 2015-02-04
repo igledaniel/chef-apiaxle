@@ -1,0 +1,13 @@
+server {
+    upstream cluster {
+        server <%= node[:apiaxle][:proxy][:host] %>:<%= node[:apiaxle][:proxy][:port] %>;
+    }
+
+    listen 80;
+    server_name tiles.mapzen.com;
+
+    location / {
+        proxy_pass http://cluster;
+	proxy_set_header Host "tiles.mapzen.localhost";
+    }
+}

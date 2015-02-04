@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #
 # Cookbook Name:: apiaxle
 # Recipe:: web_admin
@@ -5,7 +6,8 @@
 
 include_recipe 'git::default'
 
-package 'nginx'
+include_recipe 'git'
+include_recipe 'nginx'
 
 file '/etc/nginx/sites-enabled/default' do
   action :delete
@@ -35,6 +37,10 @@ template '/etc/nginx/sites-available/apiaxle-admin' do
   )
 end
 
-link '/etc/nginx/sites-enabled/apiaxle-admin' do
-  to '/etc/nginx/sites-available/apiaxle-admin'
+nginx_site 'default' do
+  enable false
+end
+
+nginx_site 'admin' do
+  enable true
 end
