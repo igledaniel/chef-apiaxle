@@ -3,6 +3,7 @@
 # Recipe:: proxy
 #
 
+include_recipe 'ohai'
 include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
 include_recipe 'nginx::default'
