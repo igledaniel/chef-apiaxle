@@ -15,9 +15,7 @@ nginx_site 'default' do
   enable false
 end
 
-nginx_site 'apiaxle-proxy' do
-  enable true
-end
+nginx_site 'apiaxle-proxy'
 
 nodejs_npm 'apiaxle-proxy' do
   version node[:apiaxle][:version]

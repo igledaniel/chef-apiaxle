@@ -2,6 +2,11 @@ DEPENDENCIES
   apiaxle
     path: .
     metadata: true
+  nginx
+    git: git://github.com/aws/opsworks-cookbooks.git
+    revision: 9592158efa7fc0e265a4b0677f806f4dbf665995
+    branch: release-chef-11.10
+    rel: nginx
 
 GRAPH
   7-zip (1.0.2)
@@ -31,13 +36,7 @@ GRAPH
     windows (>= 0.0.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
-  nginx (2.7.4)
-    apt (~> 2.2)
-    bluepill (~> 2.3)
-    build-essential (~> 2.0)
-    ohai (~> 2.0)
-    runit (~> 1.2)
-    yum-epel (~> 0.3)
+  nginx (1.0.0)
   nodejs (2.2.0)
     apt (>= 0.0.0)
     ark (>= 0.0.0)
