@@ -8,15 +8,10 @@ include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
 include_recipe 'nginx::default'
 
-template '/etc/nginx/sites-available/apiaxle-proxy' do
-  source 'nginx-proxy.conf.erb'
+template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
+  source 'apiaxle-proxy-upstream.conf.erb'
+  notifies :reload, "service[nginx]"
 end
-
-nginx_site 'default' do
-  enable false
-end
-
-nginx_site 'apiaxle-proxy'
 
 nodejs_npm 'apiaxle-proxy' do
   version node[:apiaxle][:version]

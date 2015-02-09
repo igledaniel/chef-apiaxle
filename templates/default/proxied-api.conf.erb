@@ -1,0 +1,10 @@
+server {
+  listen 80;
+  server_name <%= @api_name %>.mapzen.com;
+
+  location / {
+    proxy_pass http://cluster;
+    proxy_set_header Host "<%= @api_name %>.api.localhost";
+  }
+}
+
