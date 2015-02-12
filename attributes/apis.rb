@@ -1,1 +1,3 @@
-default[:apiaxle][:proxied][:apis] = %w(tiles search transit routing)
+default[:apiaxle][:proxied][:apis] = {
+  tiles: 'vector.dev.api.mapzen.com'
+}
