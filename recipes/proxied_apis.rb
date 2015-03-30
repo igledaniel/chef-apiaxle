@@ -1,6 +1,6 @@
 node[:apiaxle][:proxied][:apis].each_pair do |api, host|
   nginx_api_proxy api do
     domain host
-    forwarded_for "$http_fastly_client_ip"
+    forwarded_for '$http_fastly_client_ip'
   end
 end
