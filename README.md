@@ -19,8 +19,8 @@ Installs only the ApiAxle api and dependencies.
 
 Installs only the ApiAxle proxy and dependencies.
 
-to add indevidual proxy
-nginx_api_proxy "some api name"
+To add an individual proxy:
+`nginx_api_proxy 'some api name'`
 
 ### apiaxle::web_admin
 
