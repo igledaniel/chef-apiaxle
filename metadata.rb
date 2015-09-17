@@ -4,7 +4,7 @@ maintainer_email 'baldur@mapzen.com'
 license          'GPL v3'
 description      'Installs/Configures apiaxle'
 long_description 'Installs/Configures apiaxle'
-version          '0.1.0'
+version          '0.1.1'
 
 recipe 'apiaxle', 'Installs apiaxle'
 
