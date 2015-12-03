@@ -1,5 +1,5 @@
 default[:apiaxle][:environment]                            = 'development'
-default[:apiaxle][:version]                                = '1.12.34'
+default[:apiaxle][:version]                                = '1.12.35'
 
 # config
 default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
