@@ -26,7 +26,8 @@ template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
 end
 
 nodejs_npm 'apiaxle-proxy' do
-  version node[:apiaxle][:version]
+  version node[:apiaxle][:proxy][:version]
+  url     node[:apiaxle][:proxy][:url]
 end
 
 runit_service 'apiaxle-proxy' do

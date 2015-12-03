@@ -8,7 +8,8 @@ include_recipe 'apiaxle::_config'
 
 %w(repl api).each do |p|
   nodejs_npm "apiaxle-#{p}" do
-    version node[:apiaxle][:version]
+    version node[:apiaxle][p][:version]
+    url     node[:apiaxle][p][:url]
   end
 end
 
