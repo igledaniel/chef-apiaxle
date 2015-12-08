@@ -1,5 +1,11 @@
 default[:apiaxle][:environment]                            = 'development'
-default[:apiaxle][:version]                                = '1.12.34'
+default[:apiaxle][:version]                                = '1.12.35'
+default[:apiaxle][:proxy][:version]                        = node[:apiaxle][:version]
+default[:apiaxle][:proxy][:url]                            = nil
+default[:apiaxle][:api][:version]                          = node[:apiaxle][:version]
+default[:apiaxle][:api][:url]                              = nil
+default[:apiaxle][:repl][:version]                         = node[:apiaxle][:version]
+default[:apiaxle][:repl][:url]                             = nil
 
 # config
 default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
