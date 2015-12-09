@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.3
+-----
+* bump version, build resolver from /etc/resolv.conf
+
 0.1.2
 -----
 * Add support to install npm packages from custom url
