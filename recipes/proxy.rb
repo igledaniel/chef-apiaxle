@@ -32,11 +32,6 @@ template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
   notifies :reload, 'service[nginx]'
 end
 
-template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
-  source 'apiaxle-proxy-upstream.conf.erb'
-  notifies :reload, 'service[nginx]'
-end
-
 nodejs_npm 'apiaxle-proxy' do
   version node[:apiaxle][:proxy][:version]
   url     node[:apiaxle][:proxy][:url]
