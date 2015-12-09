@@ -27,11 +27,6 @@ execute 'generate resolver config' do
   notifies :reload, 'service[nginx]'
 end
 
-template '/etc/nginx/conf.d/resolver.conf' do
-  source 'resolver.conf.erb'
-  notifies :reload, 'service[nginx]'
-end
-
 template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
   source 'apiaxle-proxy-upstream.conf.erb'
   notifies :reload, 'service[nginx]'
