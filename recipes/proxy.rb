@@ -20,6 +20,23 @@ file '/var/www/nginx-default/index.html' do
   content '<h1>WORKS!</h1>'
 end
 
+execute 'generate resolver config' do
+  command <<-EOH
+    echo resolver $(awk 'BEGIN{ORS=" "} /nameserver/{print $2}' /etc/resolv.conf | sed "s/ $/;/g") >/etc/nginx/conf.d/resolver.conf
+  EOH
+  notifies :reload, 'service[nginx]'
+end
+
+template '/etc/nginx/conf.d/resolver.conf' do
+  source 'resolver.conf.erb'
+  notifies :reload, 'service[nginx]'
+end
+
+template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
+  source 'apiaxle-proxy-upstream.conf.erb'
+  notifies :reload, 'service[nginx]'
+end
+
 template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
   source 'apiaxle-proxy-upstream.conf.erb'
   notifies :reload, 'service[nginx]'
