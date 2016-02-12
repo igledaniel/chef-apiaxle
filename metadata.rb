@@ -16,6 +16,6 @@ depends 'nginx'
 depends 'ohai'
 depends 'nodejs',   '~> 2.2.0'
 depends 'redisio',  '~> 2.2.4'
-depends 'runit',    '~> 1.5.14'
+depends 'runit',    '~> 1.7.6'
 
 supports 'ubuntu', '>= 12.04'
