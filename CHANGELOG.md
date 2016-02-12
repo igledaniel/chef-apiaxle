@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.4
+-----
+* bump runit dep
+
 0.1.3
 -----
 * bump version, build resolver from /etc/resolv.conf
