@@ -4,7 +4,7 @@
 Vagrant.require_version ">= 1.5.0"
 
 Vagrant.configure('2') do |config|
-  config.omnibus.chef_version = '11.12.8'
+  config.omnibus.chef_version = '12.7.2'
   config.vm.hostname          = 'apiaxle'
   config.vm.box               = 'ubuntu-14.04-opscode'
   config.berkshelf.enabled    = true

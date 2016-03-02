@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.5
+-----
+* override default (slightly broken) nginx init script
+* update Berksfile: no longer require opsworks nginx cookbook
+* berks update
+
 0.1.4
 -----
 * bump runit dep

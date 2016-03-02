@@ -8,6 +8,14 @@ include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
 include_recipe 'nginx::default'
 
+# override the default init script
+template '/etc/init.d/nginx' do
+  source  'nginx.erb'
+  owner   'root'
+  group   'root'
+  mode    0755
+end
+
 directory '/var/www/nginx-default' do
   user node[:nginx][:user]
   group node[:nginx][:user]
