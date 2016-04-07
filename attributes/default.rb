@@ -36,6 +36,8 @@ default[:apiaxle][:proxy][:process_forks]                  = node[:cpu][:total]
 default[:apiaxle][:proxy][:process_events]                 = true
 
 default[:apiaxle][:proxy_event_subscriber][:process_forks] = node[:cpu][:total]
+default[:apiaxle][:proxy_event_subscriber][:external_processors] = []
+default[:apiaxle][:proxy_event_subscriber][:env]           = {}
 
 # web_admin
 default[:apiaxle][:web_admin][:repository]                 = 'https://github.com/mapzen/apiaxle-admin.git'
