@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.1.6
+-----
+* support for external traffic processors for proxy_event_subscriber
+* proxy now running without -q so it hands traffic to proxy_event_subscriber
+* proxy requires git
+* proxy and proxy_event_subscriber restart on new version
+* proxy_event_subscriber restarts on new external processor version
+
 0.1.5
 -----
 * override default (slightly broken) nginx init script
