@@ -9,7 +9,7 @@ version          '0.1.5'
 recipe 'apiaxle', 'Installs apiaxle'
 
 depends 'apt'
-depends 'git'
+depends 'git',      '~> 4.3'
 depends 'user'
 depends 'ulimit'
 depends 'ohai'

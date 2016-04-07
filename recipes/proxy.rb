@@ -7,6 +7,7 @@ include_recipe 'ohai'
 include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
 include_recipe 'nginx::default'
+include_recipe 'git::default'
 
 # override the default init script
 template '/etc/init.d/nginx' do
@@ -43,6 +44,16 @@ end
 nodejs_npm 'apiaxle-proxy' do
   version node[:apiaxle][:proxy][:version]
   url     node[:apiaxle][:proxy][:url]
+  notifies :restart, 'runit_service[apiaxle-proxy]', :delayed
+  notifies :restart, 'runit_service[apiaxle-proxy-event-subscriber]', :delayed
+end
+
+node[:apiaxle][:proxy_event_subscriber][:external_processors].each do |processor|
+  nodejs_npm processor.name do
+    version processor.version
+    url processor.url
+    notifies :restart, 'runit_service[apiaxle-proxy-event-subscriber]', :delayed
+  end
 end
 
 runit_service 'apiaxle-proxy' do
@@ -60,5 +71,6 @@ runit_service 'apiaxle-proxy-event-subscriber' do
   default_logger  true
   sv_timeout      30
   subscribes      :restart, "template[#{node[:apiaxle][:config][:cfgdir]}/#{node[:apiaxle][:environment]}.json]", :delayed
-  env('NODE_ENV' => "#{node[:apiaxle][:environment]}")
+  env({ 'NODE_ENV' => "#{node[:apiaxle][:environment]}" }
+        .merge(node[:apiaxle][:proxy_event_subscriber][:env]))
 end

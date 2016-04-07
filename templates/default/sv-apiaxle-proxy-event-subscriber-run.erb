@@ -3,4 +3,5 @@
 exec 2>&1
 exec chpst -u <%= node[:apiaxle][:user][:name] %> -e <%= node[:runit][:sv_dir] %>/apiaxle-proxy-event-subscriber/env \
 apiaxle-proxy-event-subscriber \
-  -f <%= node[:apiaxle][:proxy_event_subscriber][:process_forks] %>
+  -f <%= node[:apiaxle][:proxy_event_subscriber][:process_forks] %>\
+  <%= node[:apiaxle][:proxy_event_subscriber][:external_processors].map { |p| " -e /usr/local/lib/node_modules/#{p.name}"}.join() %>
