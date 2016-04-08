@@ -5,5 +5,5 @@ exec chpst -u <%= node[:apiaxle][:user][:name] %> -e <%= node[:runit][:sv_dir] %
 apiaxle-proxy-event-subscriber \
   -f <%= node[:apiaxle][:proxy_event_subscriber][:process_forks] %>\
   <%= node[:apiaxle][:proxy_event_subscriber][:traffic_processors].map do |p|
-    " -e /usr/local/lib/node_modules/#{p.name}"}.join()
-  end %>
+    " -e /usr/local/lib/node_modules/#{p.name}"
+  end.join() %>
