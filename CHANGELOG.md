@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.1.7
+-----
+* create log directory for external traffic processors
+* traffic processor rewording for consistency
+
 0.1.6
 -----
 * support for external traffic processors for proxy_event_subscriber
