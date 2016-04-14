@@ -13,8 +13,8 @@ nodejs_npm 'apiaxle-api' do
 end
 
 nodejs_npm 'apiaxle-repl' do
-  version node[:apiaxle][repl][:version]
-  url     node[:apiaxle][repl][:url]
+  version node[:apiaxle][:repl][:version]
+  url     node[:apiaxle][:repl][:url]
 end
 
 runit_service 'apiaxle-api' do
