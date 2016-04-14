@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.8
+-----
+* restart api on version change
+
 0.1.7
 -----
 * create log directory for external traffic processors
