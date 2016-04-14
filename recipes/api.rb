@@ -6,11 +6,15 @@
 include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
 
-%w(repl api).each do |p|
-  nodejs_npm "apiaxle-#{p}" do
-    version node[:apiaxle][p][:version]
-    url     node[:apiaxle][p][:url]
-  end
+nodejs_npm 'apiaxle-api' do
+  version node[:apiaxle][:api][:version]
+  url     node[:apiaxle][:api][:url]
+  notifies :restart, 'runit_service[apiaxle-api]', :delayed
+end
+
+nodejs_npm 'apiaxle-repl' do
+  version node[:apiaxle][repl][:version]
+  url     node[:apiaxle][repl][:url]
 end
 
 runit_service 'apiaxle-api' do
