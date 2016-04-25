@@ -55,8 +55,8 @@ directory '/var/log/apiaxle-traffic-processors' do
   action :create
 end
 
-node[:apiaxle][:proxy_event_subscriber][:traffic_processors].each do |processor|
-  nodejs_npm processor.name do
+node[:apiaxle][:traffic_processors].each do |processor|
+  nodejs_npm processor.url do
     version processor.version
     url processor.url
     notifies :restart, 'runit_service[apiaxle-proxy-event-subscriber]', :delayed
@@ -78,6 +78,5 @@ runit_service 'apiaxle-proxy-event-subscriber' do
   default_logger  true
   sv_timeout      30
   subscribes      :restart, "template[#{node[:apiaxle][:config][:cfgdir]}/#{node[:apiaxle][:environment]}.json]", :delayed
-  env({ 'NODE_ENV' => "#{node[:apiaxle][:environment]}" }
-        .merge(node[:apiaxle][:proxy_event_subscriber][:env]))
+  env('NODE_ENV' => "#{node[:apiaxle][:environment]}")
 end

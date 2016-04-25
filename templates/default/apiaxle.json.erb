@@ -11,5 +11,11 @@
     "appenders": [{
       "type": "console"
     }]
-  }
+  },
+  "traffic_processors": <%= node[:apiaxle][:traffic_processors].map do |p|
+    {
+      path: p['require_path'],
+      args: p['args']
+    }
+  end.to_json %>
 }

@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.9
+-----
+* move traffic processor config to apiaxle's json config file
+
 0.1.8
 -----
 * restart api on version change
