@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.2.0
+-----
+* provide a means of blocking IPs
+
 0.1.9
 -----
 * move traffic processor config to apiaxle's json config file
