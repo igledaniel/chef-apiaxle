@@ -32,7 +32,7 @@ If your installation is not behind some sort of proxy, you can simply provide an
 subnets you wish to block: `node[:apiaxle][:proxied][:blocked_ips]`.
 
 If your installation is behind a proxy, in addition to the above, you will need to override
-`node[:apiaxle][:proxied][:real_ip_from]`, which is the trusted network from which you will infer
+`node[:apiaxle][:proxied][:real_ip_from]` (string), which is the trusted network from which you will infer
 originating IPs based on X-Forwarded-For. For example, if you're hosted in AWS and have a VPC on a
 192.168.0.0/16 subnet, you would set the attribute as such.
 
