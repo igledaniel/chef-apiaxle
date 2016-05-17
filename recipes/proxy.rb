@@ -36,6 +36,15 @@ execute 'generate resolver config' do
   notifies :reload, 'service[nginx]'
 end
 
+template '/etc/nginx/conf.d/blocked_ips.conf' do
+  source 'blocked_ips.conf.erb'
+  variables(
+    blocked_ips: node[:apiaxle][:proxied][:blocked_ips],
+    real_ip_from: node[:apiaxle][:proxied][:real_ip_from]
+  )
+  notifies :reload, 'service[nginx]'
+end
+
 template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
   source 'apiaxle-proxy-upstream.conf.erb'
   notifies :reload, 'service[nginx]'
