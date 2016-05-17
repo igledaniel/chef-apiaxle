@@ -6,6 +6,7 @@ default[:apiaxle][:api][:version]                          = node[:apiaxle][:ver
 default[:apiaxle][:api][:url]                              = nil
 default[:apiaxle][:repl][:version]                         = node[:apiaxle][:version]
 default[:apiaxle][:repl][:url]                             = nil
+default[:apiaxle][:traffic_processors]                     = []
 
 # config
 default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
