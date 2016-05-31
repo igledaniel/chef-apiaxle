@@ -1,6 +1,9 @@
 Changelog
 =========
 
+0.2.1
+* rename traffic processors to hit processors
+
 0.2.0
 -----
 * provide a means of blocking IPs

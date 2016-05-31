@@ -57,14 +57,14 @@ nodejs_npm 'apiaxle-proxy' do
   notifies :restart, 'runit_service[apiaxle-proxy-event-subscriber]', :delayed
 end
 
-directory '/var/log/apiaxle-traffic-processors' do
+directory '/var/log/apiaxle-hit-processors' do
   owner 'apiaxle'
   group 'apiaxle'
   mode '0755'
   action :create
 end
 
-node[:apiaxle][:traffic_processors].each do |processor|
+node[:apiaxle][:hit_processors].each do |processor|
   nodejs_npm processor.url do
     version processor.version
     url processor.url

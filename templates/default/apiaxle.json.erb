@@ -12,7 +12,7 @@
       "type": "console"
     }]
   },
-  "traffic_processors": <%= node[:apiaxle][:traffic_processors].map do |p|
+  "hit_processors": <%= node[:apiaxle][:hit_processors].map do |p|
     {
       path: p['require_path'],
       args: p['args']
