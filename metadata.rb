@@ -4,7 +4,7 @@ maintainer_email 'baldur@mapzen.com'
 license          'GPL v3'
 description      'Installs/Configures apiaxle'
 long_description 'Installs/Configures apiaxle'
-version          '0.2.1'
+version          '0.2.2'
 
 recipe 'apiaxle', 'Installs apiaxle'
 
@@ -14,7 +14,7 @@ depends 'user'
 depends 'ulimit'
 depends 'ohai'
 depends 'nginx',    '~> 2.7.6'
-depends 'nodejs',   '~> 2.2.0'
+depends 'nodejs',   '~> 2.4.4'
 depends 'redisio',  '~> 2.2.4'
 depends 'runit',    '~> 1.7.6'
 

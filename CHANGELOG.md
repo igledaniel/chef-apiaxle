@@ -1,7 +1,12 @@
 Changelog
 =========
 
+0.2.2
+-----
+* bump nodejs dep
+
 0.2.1
+-----
 * rename traffic processors to hit processors
 
 0.2.0
