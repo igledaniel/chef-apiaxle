@@ -1,7 +1,12 @@
 Changelog
 =========
 
+0.2.2
+-----
+* fail deploy on bad nginx config
+
 0.2.1
+-----
 * rename traffic processors to hit processors
 
 0.2.0
