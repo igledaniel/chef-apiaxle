@@ -12,7 +12,8 @@
       "type": "console"
     }]
   },
-  "hit_processors": <%= node[:apiaxle][:hit_processors].map do |p|
+  "enable_builtin_stats": <%= node[:apiaxle][:proxy_event_subscriber][:enable_builtin_stats] %>,
+  "hit_processors": <%= node[:apiaxle][:proxy_event_subscriber][:hit_processors].map do |p|
     {
       path: p['require_path'],
       args: p['args']

@@ -6,7 +6,6 @@ default[:apiaxle][:api][:version]                          = node[:apiaxle][:ver
 default[:apiaxle][:api][:url]                              = nil
 default[:apiaxle][:repl][:version]                         = node[:apiaxle][:version]
 default[:apiaxle][:repl][:url]                             = nil
-default[:apiaxle][:hit_processors]                         = []
 
 # config
 default[:apiaxle][:config][:cfgdir]                        = '/etc/apiaxle'
@@ -37,6 +36,7 @@ default[:apiaxle][:proxy][:process_forks]                  = node[:cpu][:total]
 default[:apiaxle][:proxy][:process_events]                 = true
 
 default[:apiaxle][:proxy_event_subscriber][:process_forks] = node[:cpu][:total]
+default[:apiaxle][:proxy_event_subscriber][:enable_builtin_stats] = true
 default[:apiaxle][:proxy_event_subscriber][:hit_processors] = []
 default[:apiaxle][:proxy_event_subscriber][:env]           = {}
 
