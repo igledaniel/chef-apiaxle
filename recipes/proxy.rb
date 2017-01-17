@@ -64,7 +64,7 @@ directory '/var/log/apiaxle-hit-processors' do
   action :create
 end
 
-node[:apiaxle][:hit_processors].each do |processor|
+node[:apiaxle][:proxy_event_subscriber][:hit_processors].each do |processor|
   nodejs_npm processor.url do
     version processor.version
     url processor.url
