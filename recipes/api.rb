@@ -7,12 +7,14 @@ include_recipe 'apiaxle::_setup'
 include_recipe 'apiaxle::_config'
 
 nodejs_npm 'apiaxle-api' do
+  options ['--unsafe-perm']
   version node[:apiaxle][:api][:version]
   url     node[:apiaxle][:api][:url]
   notifies :restart, 'runit_service[apiaxle-api]', :delayed
 end
 
 nodejs_npm 'apiaxle-repl' do
+  options ['--unsafe-perm']
   version node[:apiaxle][:repl][:version]
   url     node[:apiaxle][:repl][:url]
 end

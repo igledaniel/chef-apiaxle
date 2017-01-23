@@ -51,6 +51,7 @@ template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
 end
 
 nodejs_npm 'apiaxle-proxy' do
+  options ['--unsafe-perm']
   version node[:apiaxle][:proxy][:version]
   url     node[:apiaxle][:proxy][:url]
   notifies :restart, 'runit_service[apiaxle-proxy]', :delayed
