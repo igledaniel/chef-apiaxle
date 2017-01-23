@@ -13,10 +13,18 @@ nodejs_npm 'apiaxle-api' do
   notifies :restart, 'runit_service[apiaxle-api]', :delayed
 end
 
+link '/usr/local/bin/apiaxle-api' do
+  to '/usr/local/nodejs-binary/bin/apiaxle-api'
+end
+
 nodejs_npm 'apiaxle-repl' do
   options ['--unsafe-perm']
   version node[:apiaxle][:repl][:version]
   url     node[:apiaxle][:repl][:url]
+end
+
+link '/usr/local/bin/apiaxle-repl' do
+  to '/usr/local/nodejs-binary/bin/apiaxle-repl'
 end
 
 runit_service 'apiaxle-api' do
