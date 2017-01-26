@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.2.4
+-----
+* upgrade node to 6
+* upgrade redis to 3.2.4
+
+0.2.3
+-----
+* disable builtin stats processing
+
 0.2.2
 -----
 * fail deploy on bad nginx config

@@ -22,7 +22,7 @@ default[:apiaxle][:user][:filehandle_limit]                = 10_240
 default[:apiaxle][:redis][:host]                           = 'localhost'
 default[:apiaxle][:redis][:port]                           = 6379
 
-default[:redisio][:version]                                = '2.8.17'
+default[:redisio][:version]                                = '3.2.4'
 
 # api
 default[:apiaxle][:api][:host]                             = '0.0.0.0'
