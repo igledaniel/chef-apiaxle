@@ -57,5 +57,5 @@ default[:apiaxle][:web_admin][:allowed_ips]                = %w(
 
 # nodejs
 default[:nodejs][:install_method]                          = 'binary'
-default[:nodejs][:version]                                 = '0.10.36'
-default[:nodejs][:binary][:checksum][:linux_x64]           = '2bc13477684a9fe534bdc9d8f4a8caf6257a11953b57c42cad9b919ee259a0d5'
+default[:nodejs][:version]                                 = '6.9.4'
+default[:nodejs][:binary][:checksum][:linux_x64]           = 'a1faed4afbbdbdddeae17a24b873b5d6b13950c36fabcb86327a001d24316ffb'

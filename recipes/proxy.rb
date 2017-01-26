@@ -51,10 +51,23 @@ template '/etc/nginx/conf.d/apiaxle-proxy-upstream.conf' do
 end
 
 nodejs_npm 'apiaxle-proxy' do
+  options ['--unsafe-perm']
   version node[:apiaxle][:proxy][:version]
   url     node[:apiaxle][:proxy][:url]
   notifies :restart, 'runit_service[apiaxle-proxy]', :delayed
   notifies :restart, 'runit_service[apiaxle-proxy-event-subscriber]', :delayed
+end
+
+link '/usr/local/lib/node_modules' do
+  to '/usr/local/nodejs-binary/lib/node_modules'
+end
+
+link '/usr/local/bin/apiaxle-proxy' do
+  to '/usr/local/nodejs-binary/bin/apiaxle-proxy'
+end
+
+link '/usr/local/bin/apiaxle-proxy-event-subscriber' do
+  to '/usr/local/nodejs-binary/bin/apiaxle-proxy-event-subscriber'
 end
 
 directory '/var/log/apiaxle-hit-processors' do
